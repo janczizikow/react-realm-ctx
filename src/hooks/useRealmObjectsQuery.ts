@@ -11,7 +11,7 @@ interface IRealmQueryArgs {
 export function useRealmObjectsQuery<T>(
   type: string | Realm.ObjectType | Function,
   {filtered, sorted, variables}: IRealmQueryArgs = {},
-): Realm.Results<T & Realm.Object> | (T & Object)[] {
+): Realm.Results<T & Realm.Object> {
   if (__DEV__ && !type) {
     throw new Error('You must pass an object type to useRealmObjectsQuery');
   }

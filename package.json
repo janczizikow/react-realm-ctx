@@ -1,0 +1,44 @@
+{
+  "name": "react-realm-ctx",
+  "version": "0.0.1",
+  "description": "more react-like experience for realm",
+  "keywords": [
+    "react",
+    "react-native",
+    "realm"
+  ],
+  "author": "Jan Czizikow <jan.czizikow@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/janczizikow/react-realm-ctx",
+  "repository": "github:janczizikow/react-realm-ctx",
+  "bugs": "https://github.com/janczizikow/react-realm-ctx/issues",
+  "main": "dist",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "tsc -d",
+    "prepublishOnly": "yarn build",
+    "format": "prettier --config .prettierrc --write 'src/**/*.{ts,tsx}'",
+    "lint": "eslint . --cache",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"write some tests 🧪\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "realm": ">=3.6.0"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@types/react": "^16.9.35",
+    "@types/react-native": "^0.62.10",
+    "eslint": "^7.0.0",
+    "prettier": "^2.0.5",
+    "realm": "3.6.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.2"
+  }
+}

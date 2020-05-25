@@ -57,6 +57,8 @@ Use the context in any child components:
 
 Query:
 
+### Hooks
+
 ```jsx
 import React from 'react';
 import {FlatList} from 'react-native';
@@ -70,6 +72,22 @@ const TodoList = () => {
 
   return (
     <FlatList data={allTodos} renderItem={renderItem} />
+  );
+}
+```
+
+### Render props
+
+```jsx
+import React from 'react';
+import {FlatList} from 'react-native';
+import {RealmObjectsQuery} from 'react-realm-ctx';
+
+const TodoList = () => {
+  return (
+    <RealmObjectsQuery type="Todo" filtered="done = false">
+      {({results}) => <FlatList data={results} renderItem={renderItem} />}
+    </RealmObjectsQuery>
   );
 }
 ```

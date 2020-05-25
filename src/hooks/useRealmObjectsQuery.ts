@@ -1,12 +1,7 @@
 import {useReducer, useContext, useMemo, useEffect, useDebugValue} from 'react';
 import Realm from 'realm';
 import {ReactRealmContext, IReactRealmContext} from '../Context';
-
-interface IRealmQueryArgs {
-  filtered?: string;
-  variables?: any[];
-  sorted?: Realm.SortDescriptor[];
-}
+import {IRealmQueryArgs} from '../types';
 
 export function useRealmObjectsQuery<T>(
   type: string | Realm.ObjectType | Function,

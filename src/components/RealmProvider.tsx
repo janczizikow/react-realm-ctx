@@ -1,4 +1,4 @@
-import React, {useMemo, PropsWithChildren} from 'react';
+import React from 'react';
 import Realm from 'realm';
 import {ReactRealmContext} from '../Context';
 
@@ -9,8 +9,8 @@ interface IProviderProps {
 export function RealmProvider({
   realm,
   children,
-}: PropsWithChildren<IProviderProps>): React.ReactNode {
-  const value = useMemo(() => ({realm}), [realm]);
+}: React.PropsWithChildren<IProviderProps>): React.ReactElement {
+  const value = React.useMemo(() => ({realm}), [realm]);
 
   return (
     <ReactRealmContext.Provider value={value}>

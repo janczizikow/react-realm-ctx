@@ -27,12 +27,16 @@
     "type-check": "tsc --noEmit",
     "test": "echo \"write some tests 🧪\" && exit 1"
   },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.3.2"
+  },
   "peerDependencies": {
     "react": ">=16.3.0",
     "realm": ">=3.6.0"
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "^1.1.0",
+    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react": "^16.9.35",
     "@types/react-native": "^0.62.10",
     "eslint": "^7.0.0",

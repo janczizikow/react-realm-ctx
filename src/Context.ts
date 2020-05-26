@@ -5,9 +5,8 @@ export interface IReactRealmContext {
   realm: Realm;
 }
 
-// @ts-ignore
-export const ReactRealmContext = React.createContext<IReactRealmContext>(null);
+const ReactRealmContext = React.createContext<IReactRealmContext>(null as any);
 
-if (__DEV__) {
-  ReactRealmContext.displayName = 'ReactRealm';
-}
+ReactRealmContext.displayName = 'ReactRealm';
+
+export {ReactRealmContext};

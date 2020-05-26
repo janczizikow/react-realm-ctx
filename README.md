@@ -55,9 +55,9 @@ export default class App extends React.Component {
 
 Use the context in any child components:
 
-Query:
+### Query
 
-### Hooks
+#### Hooks
 
 ```jsx
 import React from 'react';
@@ -76,7 +76,7 @@ const TodoList = () => {
 }
 ```
 
-### Render props
+#### Render props
 
 ```jsx
 import React from 'react';
@@ -92,7 +92,9 @@ const TodoList = () => {
 }
 ```
 
-Write:
+### Write
+
+#### Hooks
 
 ```jsx
 import React from 'react';
@@ -119,6 +121,71 @@ const TodoItem = ({id, title, done}) => {
     <TouchableOpacity onPress={toggleDone} onLongPress={handleDelete}>
       <Text style={done ? {textDecorationLine: 'line-through'} : undefined}>{title}</Text>
     </TouchableOpacity>
+  );
+};
+```
+
+#### HOC
+
+```jsx
+import React from 'react';
+import {TouchableOpacity, Text} from 'react-native';
+import {withRealm} from 'react-realm-ctx';
+
+const TodoItem = withRealm(({id, title, done, realm}) => {
+  const toggleDone = () => {
+    realm.write(() => {
+      let todo = realm.objectForPrimaryKey('Todo', id);
+      todo.done = !todo.done;
+    });
+  };
+
+  const handleDelete = () => {
+    realm.write(() => {
+      let todo = realm.objectForPrimaryKey('Todo', id);
+      realm.delete(todo);
+    });
+  };
+
+  return (
+    <TouchableOpacity onPress={toggleDone} onLongPress={handleDelete}>
+      <Text style={done ? {textDecorationLine: 'line-through'} : undefined}>{title}</Text>
+    </TouchableOpacity>
+  );
+});
+```
+
+
+#### Render props
+
+```jsx
+import React from 'react';
+import {TouchableOpacity, Text} from 'react-native';
+import {RealmConsumer} from 'react-realm-ctx';
+
+const TodoItem = ({id, title, done}) => {
+  const toggleDone = (realm) => {
+    realm.write(() => {
+      let todo = realm.objectForPrimaryKey('Todo', id);
+      todo.done = !todo.done;
+    });
+  };
+
+  const handleDelete = (realm) => {
+    realm.write(() => {
+      let todo = realm.objectForPrimaryKey('Todo', id);
+      realm.delete(todo);
+    });
+  };
+
+  return (
+    <RealmConsumer>
+      {({realm}) => (
+        <TouchableOpacity onPress={() => toggleDone(realm)} onLongPress={() => handleDelete(realm)}>
+          <Text style={done ? {textDecorationLine: 'line-through'} : undefined}>{title}</Text>
+        </TouchableOpacity>
+      )}
+    </RealmConsumer>
   );
 };
 ```

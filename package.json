@@ -25,7 +25,7 @@
     "format": "prettier --config .prettierrc --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint . --cache",
     "type-check": "tsc --noEmit",
-    "test": "jest --coverage --detectOpenHandles"
+    "test": "cross-env REALM_DISABLE_ANALYTICS=true jest --coverage"
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.3.2"
@@ -44,6 +44,7 @@
     "@types/react-native": "^0.62.10",
     "@types/react-test-renderer": "16.9.2",
     "babel-jest": "^26.0.1",
+    "cross-env": "^7.0.2",
     "eslint": "^7.0.0",
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.59.0",

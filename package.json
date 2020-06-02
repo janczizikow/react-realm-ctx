@@ -25,7 +25,7 @@
     "format": "prettier --config .prettierrc --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint . --cache",
     "type-check": "tsc --noEmit",
-    "test": "jest --coverage"
+    "test": "jest --coverage --detectOpenHandles"
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.3.2"

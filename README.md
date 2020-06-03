@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/janczizikow/react-realm-ctx/branch/master/graph/badge.svg)](https://codecov.io/gh/janczizikow/react-realm-ctx)
+
 # React Realm Ctx
 
 A more react-like experience for [Realm]([real](https://realm.io/docs/javascript/latest)).

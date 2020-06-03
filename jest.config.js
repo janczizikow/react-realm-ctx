@@ -5,4 +5,5 @@ module.exports = {
   transform: {
     '^.+\\.(js|ts|tsx)$': require.resolve('react-native/jest/preprocessor.js'),
   },
+  setupFilesAfterEnv: ['@testing-library/react-native/cleanup-after-each'],
 };

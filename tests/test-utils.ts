@@ -1,3 +1,10 @@
+export interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+  createdAt: Date;
+}
+
 export const TodoSchema = {
   name: 'Todo',
   primaryKey: 'id',

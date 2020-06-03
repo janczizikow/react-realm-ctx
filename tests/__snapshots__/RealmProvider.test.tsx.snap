@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<RealmProvider /> adds realm to the context 1`] = `
-<Text>
-  Number of todos in this Realm: 
-  0
-</Text>
-`;

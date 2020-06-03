@@ -2,7 +2,7 @@
 
 exports[`<RealmProvider /> adds realm to the context 1`] = `
 <Text>
-  Todos: 
+  Number of todos in this Realm: 
   0
 </Text>
 `;

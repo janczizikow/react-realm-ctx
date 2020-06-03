@@ -1,6 +1,4 @@
-import Realm from 'realm';
-
-const TodoSchema = {
+export const TodoSchema = {
   name: 'Todo',
   primaryKey: 'id',
   properties: {
@@ -10,5 +8,3 @@ const TodoSchema = {
     createdAt: {type: 'date'},
   },
 };
-
-export const realm = new Realm({schema: [TodoSchema]});
